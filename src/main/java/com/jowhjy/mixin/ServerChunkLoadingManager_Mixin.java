@@ -1,6 +1,7 @@
 package com.jowhjy.mixin;
 
 import com.jowhjy.config.FootprintConfigs;
+import com.jowhjy.mixin_interfaces.IChunkWithForcedSave;
 import net.minecraft.server.world.ServerChunkLoadingManager;
 import net.minecraft.world.chunk.Chunk;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +15,9 @@ public class ServerChunkLoadingManager_Mixin {
     @Inject(method = "save(Lnet/minecraft/world/chunk/Chunk;)Z", at = @At(value = "HEAD"), cancellable = true)
     public void footprint$chunkSavingConditions(Chunk chunk, CallbackInfoReturnable<Boolean> cir) {
 
-        if (chunk.getInhabitedTime() < FootprintConfigs.MIN_INHABITED_TIME) cir.setReturnValue(false);
+        if (chunk.getInhabitedTime() < FootprintConfigs.MIN_INHABITED_TIME
+        && !((IChunkWithForcedSave)chunk).footprint$isForceSave())
+            cir.setReturnValue(false);
     }
 
 }

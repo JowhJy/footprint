@@ -3,7 +3,13 @@
 	"package": "com.jowhjy.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ServerChunkLoadingManager_Mixin"
+		"BlockItem_Mixin",
+		"Chunk_Mixin",
+		"ItemEntity_Mixin",
+		"LivingEntity_Mixin",
+		"ServerChunkLoadingManager_Mixin",
+		"ServerPlayerEntity_Mixin",
+		"ServerPlayInteractionManager_Mixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -11,6 +11,11 @@ public class FootprintConfigProvider implements SimpleConfig.DefaultConfig {
         return configContents;
     }
 
+    public void addKeyValuePairWithCommentAbove(Pair<String, ?> keyValuePair, String commentAbove, String commentToSide) {
+        addComment(commentAbove);
+        addKeyValuePair(keyValuePair, commentToSide);
+    }
+
     public void addKeyValuePair(Pair<String, ?> keyValuePair, String comment) {
         configContents += keyValuePair.getFirst() + "=" + keyValuePair.getSecond() + " #"
                 + comment + " | default: " + keyValuePair.getSecond() + "\n";
