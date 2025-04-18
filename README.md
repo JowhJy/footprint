@@ -17,7 +17,7 @@ Features
     * Block broken by player (default: on). Example: to prevent players from quickly grabbing a resource from the same chunk multiple times.
     * Entity hurt (default: off, because entities get hurt naturally quite often)
     * Item picked up by player (default: on)
-    * Item dropped by player (default: on). Example: to avoid loss of items dropped while flying over new terrain.
+    * Item dropped by player (default: on). This also saves the 8 chunks around the chunk where the drop happened. Example: to avoid loss of items dropped while flying over new terrain.
 * Footprint does NOT delete chunks that have already been saved, so it will never decrease your world size. Use tools like [MCA Selector](https://github.com/Querz/mcaselector/) to prune old chunks.
 
 
