@@ -58,7 +58,7 @@ public class FootprintConfigs {
                 "(true/false)");
 
         configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save.item_drop", true),
-                "If true, a chunk in which a player dropped an item should always be saved",
+                "If true, a chunk in which a player dropped an item and the 8 surrounding chunks should always be saved",
                 "(true/false)");
 
 

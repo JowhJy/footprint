@@ -1,5 +1,6 @@
 package com.jowhjy.mixin;
 
+import com.jowhjy.ChunkGetter;
 import com.jowhjy.config.FootprintConfigs;
 import com.jowhjy.mixin_interfaces.IChunkWithForcedSave;
 import com.mojang.authlib.GameProfile;
@@ -25,9 +26,7 @@ public abstract class ServerPlayerEntity_Mixin extends PlayerEntity {
     {
         if (!FootprintConfigs.ALWAYS_SAVE_ITEM_DROP) return;
 
-        //TODO: also save neighbors of this one
-        IChunkWithForcedSave chunk = (IChunkWithForcedSave) this.getWorld().getChunk(this.getBlockPos());
-        chunk.footprint$setForceSave();
+        ChunkGetter.forceSaveChunksAround(this.getWorld(), this.getBlockPos(), 1);
 
     }
 }
