@@ -1,5 +1,6 @@
 package com.jowhjy.mixin;
 
+import com.jowhjy.ChunkGetter;
 import com.jowhjy.config.FootprintConfigs;
 import com.jowhjy.mixin_interfaces.IChunkWithForcedSave;
 import net.minecraft.server.network.ServerPlayerInteractionManager;
@@ -20,6 +21,6 @@ public class ServerPlayInteractionManager_Mixin {
     {
         if (!FootprintConfigs.ALWAYS_SAVE_BLOCK_BREAK) return;
 
-        ((IChunkWithForcedSave)this.world.getChunk(pos)).footprint$setForceSave();
+        ChunkGetter.forceSaveChunksAround(world, pos, FootprintConfigs.ALWAYS_SAVE_BLOCK_BREAK_RANGE);
     }
 }

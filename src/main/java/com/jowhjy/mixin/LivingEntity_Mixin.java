@@ -1,5 +1,6 @@
 package com.jowhjy.mixin;
 
+import com.jowhjy.ChunkGetter;
 import com.jowhjy.config.FootprintConfigs;
 import com.jowhjy.mixin_interfaces.IChunkWithForcedSave;
 import net.minecraft.entity.Entity;
@@ -26,6 +27,6 @@ public abstract class LivingEntity_Mixin extends Entity {
         //this is off by default because it can happen without player intervention (bat flying into lava, foxes/wolves/axolotls murdering mobs, squid suffocating, fall damage, etc...)
         if (!FootprintConfigs.ALWAYS_SAVE_ENTITY_HURT) return;
 
-        ((IChunkWithForcedSave)world.getChunk(this.getBlockPos())).footprint$setForceSave();
+        ChunkGetter.forceSaveChunksAround(world, this.getBlockPos(), FootprintConfigs.ALWAYS_SAVE_ENTITY_HURT_RANGE);
     }
 }

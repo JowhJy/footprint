@@ -1,6 +1,7 @@
 package com.jowhjy.config;
 
 import com.mojang.datafixers.util.Pair;
+import org.jetbrains.annotations.Nullable;
 
 public class FootprintConfigProvider implements SimpleConfig.DefaultConfig {
 
@@ -11,14 +12,13 @@ public class FootprintConfigProvider implements SimpleConfig.DefaultConfig {
         return configContents;
     }
 
-    public void addKeyValuePairWithCommentAbove(Pair<String, ?> keyValuePair, String commentAbove, String commentToSide) {
-        addComment(commentAbove);
-        addKeyValuePair(keyValuePair, commentToSide);
+    public void addKeyValuePairWithCommentAbove(Pair<String, ?> keyValuePair, String commentAbove) {
+        addComment(commentAbove + " | default: " + keyValuePair.getSecond());
+        addKeyValuePair(keyValuePair);
     }
 
-    public void addKeyValuePair(Pair<String, ?> keyValuePair, String comment) {
-        configContents += keyValuePair.getFirst() + "=" + keyValuePair.getSecond() + " #"
-                + comment + " | default: " + keyValuePair.getSecond() + "\n";
+    public void addKeyValuePair(Pair<String, ?> keyValuePair) {
+        configContents += keyValuePair.getFirst() + "=" + keyValuePair.getSecond() + "\n";
     }
 
     public void addComment(String comment) {

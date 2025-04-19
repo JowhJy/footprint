@@ -1,5 +1,6 @@
 package com.jowhjy.mixin;
 
+import com.jowhjy.ChunkGetter;
 import com.jowhjy.config.FootprintConfigs;
 import com.jowhjy.mixin_interfaces.IChunkWithForcedSave;
 import net.minecraft.item.BlockItem;
@@ -17,6 +18,6 @@ public class BlockItem_Mixin {
     {
         if (!FootprintConfigs.ALWAYS_SAVE_BLOCK_PLACE) return;
 
-        ((IChunkWithForcedSave)context.getWorld().getChunk(context.getBlockPos())).footprint$setForceSave();
+        ChunkGetter.forceSaveChunksAround(context.getWorld(), context.getBlockPos(), FootprintConfigs.ALWAYS_SAVE_BLOCK_PLACE_RANGE);
     }
 }

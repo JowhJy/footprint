@@ -1,5 +1,6 @@
 package com.jowhjy.mixin;
 
+import com.jowhjy.ChunkGetter;
 import com.jowhjy.config.FootprintConfigs;
 import com.jowhjy.mixin_interfaces.IChunkWithForcedSave;
 import net.minecraft.entity.Entity;
@@ -24,6 +25,6 @@ public abstract class ItemEntity_Mixin extends Entity {
     {
         if (!FootprintConfigs.ALWAYS_SAVE_ITEM_PICKUP) return;
 
-        ((IChunkWithForcedSave)this.getWorld().getChunk(this.getBlockPos())).footprint$setForceSave();
+        ChunkGetter.forceSaveChunksAround(this.getWorld(), this.getBlockPos(), FootprintConfigs.ALWAYS_SAVE_ITEM_PICKUP_RANGE);
     }
 }

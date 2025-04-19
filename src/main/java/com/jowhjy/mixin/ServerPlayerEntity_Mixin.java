@@ -26,7 +26,7 @@ public abstract class ServerPlayerEntity_Mixin extends PlayerEntity {
     {
         if (!FootprintConfigs.ALWAYS_SAVE_ITEM_DROP) return;
 
-        ChunkGetter.forceSaveChunksAround(this.getWorld(), this.getBlockPos(), 1);
+        ChunkGetter.forceSaveChunksAround(this.getWorld(), this.getBlockPos(), FootprintConfigs.ALWAYS_SAVE_ITEM_DROP_RANGE);
 
     }
 }
