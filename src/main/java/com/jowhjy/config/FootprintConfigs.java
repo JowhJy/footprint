@@ -33,29 +33,28 @@ public class FootprintConfigs {
         configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.min_inhabited_time", 200),
                 "The minimum amount of ticks a chunk needs to be loaded for it to be saved",
                 "(integer)");
-
         configs.addNewline(1);
 
         configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save.block_break", true),
                 "If true, a chunk in which a block has been broken by a player should always be saved",
                 "(true/false)");
-
         configs.addNewline(1);
 
         configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save.block_place", true),
                 "If true, a chunk in which a block has been placed by a player (or dispenser) should always be saved",
                 "(true/false)");
-
         configs.addNewline(1);
 
         configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save.entity_hurt", false),
                 "If true, a chunk in which a living entity has been hurt should always be saved",
                 "(true/false)");
+        configs.addNewline(1);
 
 
         configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save.item_pickup", true),
                 "If true, a chunk in which a player picked up an item should always be saved",
                 "(true/false)");
+        configs.addNewline(1);
 
         configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save.item_drop", true),
                 "If true, a chunk in which a player dropped an item and the 8 surrounding chunks should always be saved",
