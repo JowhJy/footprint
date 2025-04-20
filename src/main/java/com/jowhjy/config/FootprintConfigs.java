@@ -74,7 +74,7 @@ public class FootprintConfigs {
     }
 
     private static void assignConfigs() {
-        MIN_INHABITED_TIME = CONFIG.getOrDefault("footprint.min_inhabited_time", 200);
+        MIN_INHABITED_TIME = CONFIG.getOrDefault("footprint.min_inhabited_time", 1200);
 
         ALWAYS_SAVE_BLOCK_BREAK = CONFIG.getOrDefault("footprint.always_save.block_break", true);
 
