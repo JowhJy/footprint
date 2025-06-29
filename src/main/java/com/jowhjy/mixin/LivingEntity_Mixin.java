@@ -22,11 +22,11 @@ public abstract class LivingEntity_Mixin extends Entity {
     }
 
     @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;isSleeping()Z"))
-    public void footprint$alwaysSaveChunkOnEntityDamaged(ServerWorld world, DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir)
+    public void footprint$alwaysSaveChunkOnEntityDamaged(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir)
     {
         //this is off by default because it can happen without player intervention (bat flying into lava, foxes/wolves/axolotls murdering mobs, squid suffocating, fall damage, etc...)
         if (!FootprintConfigs.ALWAYS_SAVE_ENTITY_HURT) return;
 
-        ChunkGetter.forceSaveChunksAround(world, this.getBlockPos(), FootprintConfigs.ALWAYS_SAVE_ENTITY_HURT_RANGE);
+        ChunkGetter.forceSaveChunksAround(this.getWorld(), this.getBlockPos(), FootprintConfigs.ALWAYS_SAVE_ENTITY_HURT_RANGE);
     }
 }

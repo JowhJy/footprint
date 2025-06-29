@@ -2,7 +2,6 @@ package com.jowhjy.mixin;
 
 import com.jowhjy.ChunkGetter;
 import com.jowhjy.config.FootprintConfigs;
-import com.jowhjy.mixin_interfaces.IChunkWithForcedSave;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.util.ActionResult;

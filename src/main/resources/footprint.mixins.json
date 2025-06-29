@@ -7,7 +7,7 @@
 		"Chunk_Mixin",
 		"ItemEntity_Mixin",
 		"LivingEntity_Mixin",
-		"ServerChunkLoadingManager_Mixin",
+		"ThreadedAnvilChunkStorage_Mixin",
 		"ServerPlayerEntity_Mixin",
 		"ServerPlayInteractionManager_Mixin"
 	],
