@@ -25,6 +25,6 @@ public abstract class ItemEntity_Mixin extends Entity {
     {
         if (!FootprintConfigs.ALWAYS_SAVE_ITEM_PICKUP) return;
 
-        ChunkGetter.forceSaveChunksAround(this.getWorld(), this.getBlockPos(), FootprintConfigs.ALWAYS_SAVE_ITEM_PICKUP_RANGE);
+        ChunkGetter.forceSaveChunksAround(this.getEntityWorld(), this.getBlockPos(), FootprintConfigs.ALWAYS_SAVE_ITEM_PICKUP_RANGE);
     }
 }

@@ -1,7 +1,6 @@
 package com.jowhjy.config;
 
 import com.mojang.datafixers.util.Pair;
-import org.jetbrains.annotations.Nullable;
 
 public class FootprintConfigProvider implements SimpleConfig.DefaultConfig {
 
