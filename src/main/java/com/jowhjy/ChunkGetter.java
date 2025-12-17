@@ -1,14 +1,14 @@
 package com.jowhjy;
 
 import com.jowhjy.mixin_interfaces.IChunkWithForcedSave;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.Level;
 
 public class ChunkGetter {
 
     //marks all chunks around blockPos as force save
-    public static void forceSaveChunksAround(World world, BlockPos blockPos, int range)
+    public static void forceSaveChunksAround(Level world, BlockPos blockPos, int range)
     {
         ChunkPos chunkPos = new ChunkPos(blockPos);
         for (int x = chunkPos.x - range; x <= chunkPos.x + range; x++)
