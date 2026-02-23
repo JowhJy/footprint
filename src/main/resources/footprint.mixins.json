@@ -1,17 +1,21 @@
 {
-	"required": true,
-	"package": "com.jowhjy.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"BlockItem_Mixin",
-		"Chunk_Mixin",
-		"ItemEntity_Mixin",
-		"LivingEntity_Mixin",
-		"ServerChunkLoadingManager_Mixin",
-		"ServerPlayerEntity_Mixin",
-		"ServerPlayInteractionManager_Mixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "com.jowhjy.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BlockItem_Mixin",
+    "Chunk_Mixin",
+    "ChunkMap_Mixin",
+    "ChunkStatusTasks_Mixin",
+    "ItemEntity_Mixin",
+    "LivingEntity_Mixin",
+    "PersistentEntitySectionManager_Accessor",
+    "Player_Mixin",
+    "ServerLevel_Accessor",
+    "ServerPlayerEntity_Mixin",
+    "ServerPlayInteractionManager_Mixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
