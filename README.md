@@ -8,6 +8,10 @@ Footprint does NOT delete chunks that have already been saved, so it will never 
 
 Thanks [Magistermark](https://github.com/magistermaks/fabric-simplelibs) for a very easy to use config library.
 
+Known Issue
+---
+In the current version, there is an issue causing duplicate entities to spawn when chunks are generated multiple times. This is being worked on. 
+
 
 Features
 ---
