@@ -11,7 +11,6 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.entity.ChunkEntities;
-import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -26,8 +25,6 @@ import java.util.concurrent.CompletableFuture;
 public abstract class ChunkMap_Mixin {
 
     @Shadow @Final ServerLevel level;
-
-    @Shadow public abstract @Nullable LevelChunk getChunkToSend(long l);
 
     @Inject(method = "save(Lnet/minecraft/world/level/chunk/ChunkAccess;)Z", at = @At(value = "HEAD"), cancellable = true)
     public void footprint$chunkSavingConditions(ChunkAccess chunk, CallbackInfoReturnable<Boolean> cir) {

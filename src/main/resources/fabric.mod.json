@@ -3,12 +3,12 @@
 	"id": "footprint",
 	"version": "${version}",
 	"name": "Footprint",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Don't save chunks that were only loaded very briefly",
 	"authors": [
 		"JowhJy"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
+		"homepage": "https://github.com/JowhJy/footprint",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
