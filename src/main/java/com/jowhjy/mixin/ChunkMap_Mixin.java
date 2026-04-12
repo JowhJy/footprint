@@ -30,17 +30,18 @@ public abstract class ChunkMap_Mixin {
     public void footprint$chunkSavingConditions(ChunkAccess chunk, CallbackInfoReturnable<Boolean> cir) {
 
         if (chunk.getInhabitedTime() < FootprintConfigs.MIN_INHABITED_TIME
-        && !((IChunkWithForcedSave)chunk).footprint$isForceSave()) {
+	    && !((IChunkWithForcedSave)chunk).footprint$isForceSave()) {
             cir.setReturnValue(false);
         }
     }
 
-    @Inject(method = "method_60440", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;unload(Lnet/minecraft/world/level/chunk/LevelChunk;)V"))
+    @Inject(method = "lambda$scheduleUnload$0(Lnet/minecraft/server/level/ChunkHolder;Ljava/util/concurrent/CompletableFuture;J)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;unload(Lnet/minecraft/world/level/chunk/LevelChunk;)V"))
     public void footprint$clearEntitiesWhenUnloadingUnsavedChunk(ChunkHolder chunkHolder, CompletableFuture<?> completableFuture, long l, CallbackInfo ci, @Local LevelChunk levelChunk){
 
         if (levelChunk.getInhabitedTime() < FootprintConfigs.MIN_INHABITED_TIME
-                && !((IChunkWithForcedSave)levelChunk).footprint$isForceSave())
-            ((PersistentEntitySectionManager_Accessor)((ServerLevel_Accessor)this.level).getEntityManager()).footprint$getPermanentStorage().storeEntities(new ChunkEntities<>(new ChunkPos(l), ImmutableList.of()));
+	    && !((IChunkWithForcedSave)levelChunk).footprint$isForceSave()) {
+	    ((PersistentEntitySectionManager_Accessor)((ServerLevel_Accessor)this.level).getEntityManager()).footprint$getPermanentStorage().storeEntities(new ChunkEntities<>(ChunkPos.unpack(l), ImmutableList.of()));
+	}
 
     }
 
