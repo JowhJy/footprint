@@ -10,9 +10,9 @@ public class ChunkGetter {
     //marks all chunks around blockPos as force save
     public static void forceSaveChunksAround(Level world, BlockPos blockPos, int range)
     {
-        ChunkPos chunkPos = new ChunkPos(blockPos);
-        for (int x = chunkPos.x - range; x <= chunkPos.x + range; x++)
-            for (int z = chunkPos.z - range; z <= chunkPos.z + range; z++)
+        long pos = ChunkPos.containing(blockPos).pack();
+        for (int x = ChunkPos.getX(pos) - range; x <= ChunkPos.getX(pos) + range; x++)
+            for (int z = ChunkPos.getZ(pos) - range; z <= ChunkPos.getZ(pos) + range; z++)
             {
                 IChunkWithForcedSave chunk = (IChunkWithForcedSave) world.getChunk(x, z);
                 chunk.footprint$setForceSave();
