@@ -26,7 +26,7 @@ public abstract class ServerPlayerEntity_Mixin extends Player {
 
     //injected at awardstat to prevent calling for empty item stack
     @Inject(method = "drop(Lnet/minecraft/world/item/ItemStack;ZZ)Lnet/minecraft/world/entity/item/ItemEntity;", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerPlayer;awardStat(Lnet/minecraft/stats/Stat;I)V", ordinal = 0))
-    public void footprint$alwaysSaveChunkOnItemDroppedByPlayer(ItemStack stack, boolean dropAtSelf, boolean retainOwnership, CallbackInfoReturnable<ItemEntity> cir)
+    public void footprint$alwaysSaveChunkOnItemDroppedByPlayer(ItemStack itemStack, boolean randomly, boolean thrownFromHand, CallbackInfoReturnable<ItemEntity> cir)
     {
         if (!FootprintConfigs.ALWAYS_SAVE_ITEM_DROP) return;
 
