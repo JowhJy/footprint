@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(ChunkAccess.class)
-public class Chunk_Mixin implements IChunkWithForcedSave {
+public class ChunkAccess_Mixin implements IChunkWithForcedSave {
 
     @Unique
     boolean footprint$forceSave = false;

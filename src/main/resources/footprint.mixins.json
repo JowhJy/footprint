@@ -4,13 +4,14 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [
     "BlockItem_Mixin",
-    "Chunk_Mixin",
+    "ChunkAccess_Mixin",
     "ChunkMap_Mixin",
     "ChunkStatusTasks_Mixin",
     "ItemEntity_Mixin",
     "LivingEntity_Mixin",
     "PersistentEntitySectionManager_Accessor",
     "Player_Mixin",
+    "SerializableChunkData_Mixin",
     "ServerLevel_Accessor",
     "ServerPlayerEntity_Mixin",
     "ServerPlayInteractionManager_Mixin"
