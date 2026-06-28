@@ -17,6 +17,7 @@ public class FootprintConfigs {
     public static boolean ALWAYS_SAVE_ENTITY_INTERACT;
     public static boolean ALWAYS_SAVE_ITEM_PICKUP;
     public static boolean ALWAYS_SAVE_ITEM_DROP;
+    public static boolean ALWAYS_SAVE_CONTAINER_OPEN;
 
     public static int ALWAYS_SAVE_BLOCK_BREAK_RANGE;
     public static int ALWAYS_SAVE_BLOCK_PLACE_RANGE;
@@ -24,6 +25,7 @@ public class FootprintConfigs {
     public static int ALWAYS_SAVE_ENTITY_INTERACT_RANGE;
     public static int ALWAYS_SAVE_ITEM_PICKUP_RANGE;
     public static int ALWAYS_SAVE_ITEM_DROP_RANGE;
+    public static int ALWAYS_SAVE_CONTAINER_OPEN_RANGE;
 
     public static void registerConfigs() {
 
@@ -75,6 +77,11 @@ public class FootprintConfigs {
         configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save_range.item_drop", 1),
                 "Range of additional chunks to save around dropped item");
 
+        configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save.container_open", true),
+                "If true, a chunk in which a container was opened should always be saved");
+        configs.addKeyValuePairWithCommentAbove(new Pair<>("footprint.always_save_range.container_open", 0),
+                "Range of additional chunks to save around container opened");
+
 
         configs.addNewline(15);
         configs.addComment("                                                                                                        (-:");
@@ -95,6 +102,8 @@ public class FootprintConfigs {
 
         ALWAYS_SAVE_ITEM_DROP = CONFIG.getOrDefault("footprint.always_save.item_drop", true);
 
+        ALWAYS_SAVE_CONTAINER_OPEN = CONFIG.getOrDefault("footprint.always_save.container_open", true);
+
         ALWAYS_SAVE_BLOCK_BREAK_RANGE = CONFIG.getOrDefault("footprint.always_save_range.block_break", 0);
 
         ALWAYS_SAVE_BLOCK_PLACE_RANGE = CONFIG.getOrDefault("footprint.always_save_range.block_place", 0);
@@ -106,6 +115,8 @@ public class FootprintConfigs {
         ALWAYS_SAVE_ITEM_PICKUP_RANGE = CONFIG.getOrDefault("footprint.always_save_range.item_pickup", 1);
 
         ALWAYS_SAVE_ITEM_DROP_RANGE = CONFIG.getOrDefault("footprint.always_save_range.item_drop", 1);
+
+        ALWAYS_SAVE_CONTAINER_OPEN_RANGE = CONFIG.getOrDefault("footprint.always_save_range.container_open", 0);
     }
     
 }

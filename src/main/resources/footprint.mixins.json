@@ -3,6 +3,7 @@
   "package": "com.jowhjy.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "BaseContainerBlockEntity_Mixin",
     "BlockItem_Mixin",
     "ChunkAccess_Mixin",
     "ChunkMap_Mixin",
@@ -11,6 +12,7 @@
     "LivingEntity_Mixin",
     "PersistentEntitySectionManager_Accessor",
     "Player_Mixin",
+    "RandomizableContainerBlockEntity_Mixin",
     "SerializableChunkData_Mixin",
     "ServerLevel_Accessor",
     "ServerPlayerEntity_Mixin",
