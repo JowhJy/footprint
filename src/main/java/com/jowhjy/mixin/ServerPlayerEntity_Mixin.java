@@ -5,6 +5,7 @@ import com.jowhjy.config.FootprintConfigs;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -25,8 +26,8 @@ public abstract class ServerPlayerEntity_Mixin extends Player {
     }
 
     //injected at awardstat to prevent calling for empty item stack
-    @Inject(method = "drop(Lnet/minecraft/world/item/ItemStack;ZZ)Lnet/minecraft/world/entity/item/ItemEntity;", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerPlayer;awardStat(Lnet/minecraft/stats/Stat;I)V", ordinal = 0))
-    public void footprint$alwaysSaveChunkOnItemDroppedByPlayer(ItemStack itemStack, boolean randomly, boolean thrownFromHand, CallbackInfoReturnable<ItemEntity> cir)
+    @Inject(method = "drop(Lnet/minecraft/world/item/ItemStack;ZLnet/minecraft/util/Prediction;)Lnet/minecraft/world/entity/item/ItemEntity;", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerPlayer;awardStat(Lnet/minecraft/stats/Stat;I)V", ordinal = 0))
+    public void footprint$alwaysSaveChunkOnItemDroppedByPlayer(ItemStack itemStack, boolean thrownFromHand, Prediction prediction, CallbackInfoReturnable<ItemEntity> cir)
     {
         if (!FootprintConfigs.ALWAYS_SAVE_ITEM_DROP) return;
 
